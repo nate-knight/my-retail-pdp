@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>myRetail</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/main.css">
+        
+        <!-- Angular app -->
+        <script src="./node_modules/angular/angular.min.js"></script>
+        <script src="./node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="js/app.js"></script>
+        
+        <!-- controllers -->
+    
+        <!-- directives -->
+
+        <!-- services -->
+        <script src="js/services/item.js"></script>
+
+
+    </head>
+    <body ng-app="myRetail" ng-cloak>
+        
+        <div class="item" ng-controller="ItemController as item">
+            
+            <!-- Main -->
+            <section class="item__titleImages item__section">
+                <div class="item__title">{{item.title}}</div>
+
+                <div class="item__images">
+                    <div class="gallery" ng-controller="GalleryController">
+                        <div class="gallery__activeImageContainer">
+                            <img class="gallery__activeImage" ng-src="{{activeImgUrl}}" alt="" />
+                        </div>
+
+                        <button class="magnify link" role="button">
+                            <img class="magnify__img" src="./img/magnify.png" /> view larger
+                        </button>
+
+                        <div class="gallery__itemSelector">
+                            <button role="button" class="arrow-container left link" ng-click="prevImage()" ng-show="activeImgIndex > 0"><img class="arrow" src="./img/arrow-left.png" /></button>
+                            <div class="gallery__thumbnails__viewport">
+                                <div class="gallery__thumbnails__centerBox"></div>
+                                <ul class="gallery__thumbnails">
+                                    <li class="small-image pull-left gallery__thumbnail" ng-repeat="image in images">
+                                        <img class="gallery__thumbnail__img" ng-src="{{image}}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <button role="button" class="arrow-container right link" ng-click="nextImage()" ng-show="activeImgIndex < imageCount -1"><img class="arrow" src="./img/arrow-right.png" /></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Details -->
+            <section class="details item__section">
+                <!-- price -->
+                <span class="details__price">{{item.offerPrice.formattedPriceValue}}</span>
+                <span class="details__priceQualifier">{{item.offerPrice.priceQualifier}}</span>
+
+                <!-- promotions -->
+                <div ng-controller="PromosController" class="details__promo-container details__section">
+                    <div ng-repeat="promo in promos" class="item__promo">
+                        <img src="./img/red-tag.png" />
+                        {{promo}}
+                    </div>
+                </div>
+
+    
+                <!-- quantity -->
+                <div class="details__section details__quantity">
+                    <div class="details__quantity__label">quantity</div>
+                    <div class="details__quantity__container">
+                        <div class="btn-quantity" ng-click="decreaseQuantity()"><span class="btn-quantity--subtract">_</span></div>
+                        <div class="details__quantity__text">{{quantity}}</div>
+                         <div class="btn-quantity" ng-click="increaseQuantity()"><span class="btn-quantity--add">+</span></div>
+                    </div>
+                </div>
+
+                <!-- primary action buttons -->
+                <div class="details__section details__primary-action-buttons">
+                    <button class="btn btn--default" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 2">PICK UP IN STORE</button>
+                    <button class="btn btn--primary flt-rt" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 1">ADD TO CART</button>
+                </div>
+
+                <!-- return policy  -->
+                <div class="details__section return-policy">
+                    <div class="return-policy__title">returns</div>
+                    <div class="return-policy__text">This item must be returned within 30 days of the ship date. See <a href="#">return policy</a> for details.<br/>Prices, promotions, styles and availability may vary by store and online.</div>
+                </div>
+
+                <!-- secondary action buttons -->
+                <div class="details__section">
+                    <button class="btn--secondary btn--secondary-sm">ADD TO REGISTRY</button>
+                    <button class="btn--secondary btn--secondary-med">ADD TO LIST</button>
+                    <button class="btn--secondary btn--secondary-lg">SHARE</button>
+                </div>
+
+                <!-- product highlights -->
+                <div class="details__section features">
+                    <span class="features__header">product highlights</span>
+                    <ul class="item__features">
+                        <li class="item__feature" ng-repeat="feature in item.features" ng-bind-html="feature">{{feature}}</li>
+                    </ul>
+                </div>
+
+            </section>
+    
+            <!-- Reviews -->
+            <section class="reviews item__section" ng-controller="ReviewsController as r">
+                
+                <div class="reviews__summary">
+                    <div class="reviews__stars--overall" ng-repeat="num in getNum(review.consolidatedOverallRating)">
+                        <img src="./img/star-red.png" alt="star" />
+                        <img src="./img/star-red.png" alt="star" />
+                        <img src="./img/star-red.png" alt="star" />
+                        <img src="./img/star-red.png" alt="star" />
+                        <span>overall</span>
+                    </div>
+                    
+                    <div class="view-all">view all <span>{{r.reviews.totalReviews}}</span> reviews</div>
+                </div>
+
+                <div class="reviews__container">
+                    
+                    <div class="reviews__header-container">
+                        <div class="reviews__column">
+                            <div class="pro-con">PRO</div>
+                            <div class="reviews__helpful-desc">most helpful 4-5 star review</div>
+                        </div>
+                        <div class="reviews__column">
+                            <div class="pro-con">CON</div>
+                            <div class="reviews__helpful-desc">most helpful 1-2 star review</div>
+                        </div>
+                    </div>
+
+                    <div class="reviews__review-container">
+                        <div class="reviews__column">
+                            <div class="reviews__star-rating"></div>
+                            <div class="reviews__review-title">{{r.pro.title}}</div>
+                            <div class="reviews__review-text">{{r.pro.review}}</div>
+                            <div class="reviews__review-posted">
+                                <a href="#" class="reviews__author">{{r.pro.screenName}}</a> <span class="reviews__date">{{r.proDate| date:'mediumDate'}}</span>
+                            </div>
+                        </div>
+                        <div class="reviews__column">
+                            <div class="reviews__star-rating"></div>
+                            <div class="reviews__review-title">{{r.con.title}}</div>
+                            <div class="reviews__review-text">{{r.con.review}}</div>
+                            <div class="reviews__review-posted">
+                                <a href="#" class="reviews__author">{{r.con.screenName}}</a> <span class="reviews__date">{{r.conDate | date:'mediumDate'}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+    
+
+                
+            </section>
+
+        </div>
+
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        
+        <script src="js/main.js"></script>
+        <script   src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+        
+    </body>
+</html>
