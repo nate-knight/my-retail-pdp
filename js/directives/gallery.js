@@ -16,22 +16,14 @@
 				   	$scope.prevImage = function(){
 				   		if ($scope.activeImgIndex > 0){
 				   			$scope.activeImgIndex--;
-					   		$('.gallery__thumbnails').animate({
-						      left: "+=75px"
-							    },500, function(){
-							    	$scope.setActiveImg();
-							    });
+					   		$scope.slideImages(false);
 				   		}
 				   	};
 				   	
 				   	$scope.nextImage = function(){
 				   		if ($scope.activeImgIndex < $scope.imageCount - 1){
 				   			$scope.activeImgIndex++;
-							$('.gallery__thumbnails').animate({
-						      left: "-=75px"
-							    },500, function(){
-							    	$scope.setActiveImg();
-							    });
+				   			$scope.slideImages(true);
 				   		}
 				   	};
 
@@ -42,11 +34,8 @@
 				   	};
 
 					Item.then(function(data){
-
 						var images = data.Images[0];
-
 			        	$scope.images=images;
-			          		 
 				        $scope.imageCount = images.imageCount;
 
 				        //add alternate images to images array
@@ -61,7 +50,17 @@
 			           
 			       	});
 				},
-				link: {}
+				link: function(scope, el, attrs, controller){
+					
+					scope.slideImages = function(direction){
+						var distance = direction ? '-=75px' : '+=75px';
+						$('.gallery__thumbnails').animate({
+							left: distance
+								},500, function(){
+									scope.setActiveImg();
+						});
+					};
+				}
 			}
 		}]);
 })();
