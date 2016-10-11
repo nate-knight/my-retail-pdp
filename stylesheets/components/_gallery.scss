@@ -1,7 +1,9 @@
 // Gallery
 
 .gallery{
-
+    
+    margin: 10px 0;
+    text-align: center;
     
     .gallery__itemSelector{
         position:relative;
@@ -81,11 +83,6 @@
         &.right{
             right:50px;
         }
-
-        // .arrow{
-        //     margin-top: 25px;
-        // }
     }
-
 }
 

@@ -14,7 +14,7 @@
     }
 }
 
-.item__titleImages{
+.item__title-gallery{
     width: 480px;
     margin-bottom: 10px;
 }
@@ -23,11 +23,6 @@
         font-weight: 100;
         font-size: 26px;
         margin: 0 50px 40px;
-        text-align: center;
-    }
-
-    &.item__images{
-        margin: 10px 0;
         text-align: center;
     }
 
@@ -139,6 +134,12 @@
         color: #666;
         display:inline-block;
         vertical-align: top;
+        
+        a{
+            color:#666;
+            font-weight:700;
+        }
+
     }
 
     .features{

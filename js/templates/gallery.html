@@ -1,0 +1,24 @@
+<div class="gallery">
+    <div class="gallery__activeImageContainer">
+        <img class="gallery__activeImage" ng-src="{{activeImgUrl}}" alt="" />
+    </div>
+
+    <button class="magnify link" role="button">
+        <img class="magnify__img" src="./img/magnify.png" /> view larger
+    </button>
+
+    <div class="gallery__itemSelector">
+        <button role="button" class="arrow-container left link" ng-click="prevImage()" ng-show="activeImgIndex > 0"><img class="arrow" src="./img/arrow-left.png" /></button>
+
+        <div class="gallery__thumbnails__viewport">
+            <div class="gallery__thumbnails__centerBox"></div>
+            <ul class="gallery__thumbnails">
+                <li class="small-image pull-left gallery__thumbnail" ng-repeat="image in images">
+                    <img class="gallery__thumbnail__img" ng-src="{{image}}" />
+                </li>
+            </ul>
+        </div>
+
+        <button role="button" class="arrow-container right link" ng-click="nextImage()" ng-show="activeImgIndex < imageCount -1"><img class="arrow" src="./img/arrow-right.png" /></button>
+    </div>
+</div>
