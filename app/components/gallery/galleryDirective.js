@@ -4,7 +4,7 @@
 
 			return {
 				restrict: 'E',
-				templateUrl: './js/templates/gallery.html',
+				templateUrl: './app/components/gallery/galleryView.html',
 				scope: {},
 				controller: function($scope){
 					var gallery = this;
