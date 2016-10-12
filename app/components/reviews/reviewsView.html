@@ -1,14 +1,11 @@
 <div class="reviews">
     <div class="reviews__summary">
-        <div class="reviews__stars-overall" ng-repeat="num in getNum(review.consolidatedOverallRating)"> <!-- iteration not working -->
-            <img src="./img/star-red.png" alt="star" />
-            <img src="./img/star-red.png" alt="star" />
-            <img src="./img/star-red.png" alt="star" />
-            <img src="./img/star-red.png" alt="star" />
+        <div class="reviews__stars-overall">
+            <img src="./img/star-red.png" alt="star" ng-repeat="i in r.ratingRange.slice(0,r.overallReview) track by $index" />
             <span>overall</span>
         </div>
         
-        <a class="reviews__view-all" href="#">view all <span>{{r.reviews.totalReviews}}</span> reviews</a>
+        <a class="reviews__view-all" href="#">view all <span>{{r.totalReviews}}</span> reviews</a>
     </div>
 
     <div class="reviews__box">
@@ -26,19 +23,23 @@
 
         <div class="reviews__main-section">
             <div class="reviews__column">
-                <div class="reviews__star-rating"></div>
+                <div>
+                    <img class="reviews__star" src="./img/star-red.png" ng-repeat="i in r.ratingRange.slice(0,r.pro.rating) track by $index" /><img class="reviews__star" src="./img/star-empty.png" ng-repeat="i in r.ratingRange.slice(0,(r.maxRating-r.pro.rating)) track by $index" />
+                </div>
                 <div class="reviews__review-title">{{r.pro.title}}</div>
                 <div class="reviews__review-text">{{r.pro.review}}</div>
                 <div class="reviews__review-posted">
-                    <a href="#" class="reviews__author">{{r.pro.screenName}}</a> <span class="reviews__date">{{r.proDate| date:'mediumDate'}}</span>
+                    <a href="#" class="reviews__author">{{r.pro.screenName}}</a> <span class="reviews__date">{{r.pro.reviewDate| date:'mediumDate'}}</span>
                 </div>
             </div>
             <div class="reviews__column">
-                <div class="reviews__star-rating"></div>
+                <div>
+                    <img class="reviews__star" src="./img/star-red.png" ng-repeat="i in r.ratingRange.slice(0,r.con.rating) track by $index" /><img class="reviews__star" src="./img/star-empty.png" ng-repeat="i in r.ratingRange.slice(0,(r.maxRating-r.con.rating)) track by $index" />
+                </div>
                 <div class="reviews__review-title">{{r.con.title}}</div>
                 <div class="reviews__review-text">{{r.con.review}}</div>
                 <div class="reviews__review-posted">
-                    <a href="#" class="reviews__author">{{r.con.screenName}}</a> <span class="reviews__date">{{r.conDate | date:'mediumDate'}}</span>
+                    <a href="#" class="reviews__author">{{r.con.screenName}}</a> <span class="reviews__date">{{r.con.reviewDate | date:'mediumDate'}}</span>
                 </div>
             </div>
         </div>
