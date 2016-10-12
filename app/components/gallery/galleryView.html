@@ -2,12 +2,12 @@
     
     <img class="gallery__activeImage" ng-src="{{activeImgUrl}}" alt="" />
     
-    <button class="magnify button-reset">
+    <button class="magnify button-reset" tabindex="1">
         <img class="magnify__img" src="./img/magnify.png" /> view larger
     </button>
 
     <div class="gallery__img-picker">
-        <button class="arrow arrow--left button-reset" ng-click="prevImage()" ng-show="activeImgIndex > 0"><img src="./img/arrow-left.png" /></button>
+        <button class="arrow arrow--left button-reset" ng-click="prevImage()" ng-show="activeImgIndex > 0" tabindex="2"><img src="./img/arrow-left.png" /></button>
 
         <div class="gallery__viewport">
             <div class="gallery__highlight-box"></div>
@@ -18,7 +18,7 @@
             </ul>
         </div>
 
-        <button class="arrow arrow--right button-reset" ng-click="nextImage()" ng-show="activeImgIndex < imageCount -1"><img src="./img/arrow-right.png" /></button>
+        <button class="arrow arrow--right button-reset" ng-click="nextImage()" ng-show="activeImgIndex < imageCount -1" tabindex="3"><img src="./img/arrow-right.png" /></button>
     </div>
 
 </div>

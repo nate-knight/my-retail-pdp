@@ -26,7 +26,7 @@
 
 	.controller('PromosController', function(){
 		this.promos = [
-			'spend $50, ship freee', 
+			'spend $50, ship free', 
 			'$25 gift card with purchase of a select Ninja Blender'
 		];
 	});
@@ -43,9 +43,7 @@
 				templateUrl: './app/components/gallery/galleryView.html',
 				scope: {},
 				controller: function($scope){
-					var gallery = this;
-					//Gallery
-				   	$scope.images = [];
+					$scope.images = [];
 				   	$scope.activeImgIndex = 1;
 				   	$scope.activeImgUrl = '';
 

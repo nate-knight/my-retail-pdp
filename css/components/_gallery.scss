@@ -21,6 +21,10 @@
         }
         color: #666;
         margin: 75px 0 15px;
+        background:transparent;
+        @media #{$mobile}{
+            visibility : hidden;
+        }
     }
         .magnify__img{
             vertical-align: middle;
@@ -70,6 +74,7 @@
         height:65px;
         position: absolute;
         top: 0;
+        background:transparent;
 
         &--left{
             left: 50px;

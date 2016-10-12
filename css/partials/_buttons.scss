@@ -39,6 +39,7 @@
     font-weight: 400;
     font-size: 12px;
     color: #333;
+    cursor: pointer;
 
     &--sm{
     	width:150px;
@@ -75,3 +76,15 @@
     top:-5px;
     left:10px;
  }
+
+.button-reset{
+  margin:0;
+  padding:0;
+  border:0;
+  // background: transparent;
+  // font-size: inherit;
+  outline:none;
+}
+.button-reset:focus{
+  outline:#666 dashed 1px;
+}
