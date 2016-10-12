@@ -1,0 +1,45 @@
+<div class="reviews__summary">
+    <div class="reviews__stars--overall" ng-repeat="num in getNum(review.consolidatedOverallRating)">
+        <img src="./img/star-red.png" alt="star" />
+        <img src="./img/star-red.png" alt="star" />
+        <img src="./img/star-red.png" alt="star" />
+        <img src="./img/star-red.png" alt="star" />
+        <span>overall</span>
+    </div>
+    
+    <div class="view-all">view all <span>{{r.reviews.totalReviews}}</span> reviews</div>
+</div>
+
+<div class="reviews__container">
+    
+    <div class="reviews__header-container">
+        <div class="reviews__column">
+            <div class="pro-con">PRO</div>
+            <div class="reviews__helpful-desc">most helpful 4-5 star review</div>
+        </div>
+        <div class="reviews__column">
+            <div class="pro-con">CON</div>
+            <div class="reviews__helpful-desc">most helpful 1-2 star review</div>
+        </div>
+    </div>
+
+    <div class="reviews__review-container">
+        <div class="reviews__column">
+            <div class="reviews__star-rating"></div>
+            <div class="reviews__review-title">{{r.pro.title}}</div>
+            <div class="reviews__review-text">{{r.pro.review}}</div>
+            <div class="reviews__review-posted">
+                <a href="#" class="reviews__author">{{r.pro.screenName}}</a> <span class="reviews__date">{{r.proDate| date:'mediumDate'}}</span>
+            </div>
+        </div>
+        <div class="reviews__column">
+            <div class="reviews__star-rating"></div>
+            <div class="reviews__review-title">{{r.con.title}}</div>
+            <div class="reviews__review-text">{{r.con.review}}</div>
+            <div class="reviews__review-posted">
+                <a href="#" class="reviews__author">{{r.con.screenName}}</a> <span class="reviews__date">{{r.conDate | date:'mediumDate'}}</span>
+            </div>
+        </div>
+    </div>
+
+</div>

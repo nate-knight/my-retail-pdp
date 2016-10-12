@@ -195,7 +195,8 @@ a {
       font-weight: 400;
       font-size: 18px;
       color: #cc0000;
-      padding: 4px 0; }
+      padding: 4px 0;
+      display: inline-block; }
   .details .details__quantity {
     width: 240px;
     height: 40px;

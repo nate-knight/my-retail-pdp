@@ -4,8 +4,11 @@
 
 			return {
 				restrict: 'E',
-				templateUrl: 'reviewsView.html'
+				templateUrl: './app/components/reviews/reviewsView.html',
+				scope: {},
+				controller: 'ReviewsController',
+				controllerAs: 'r'
 			}
-		}]);
 
+		}]);
 })();
