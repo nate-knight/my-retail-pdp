@@ -1,7 +1,7 @@
 "use strict";
 (function(){
-
-	angular.module('myRetail', ['ngSanitize'])
+	
+	angular.module('myRetail', ['ngSanitize','ngRoute'])
 
 	.controller('ItemController', ['Item','$scope', function(Item,$scope){
 

@@ -9,13 +9,14 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/bundle.min.js"></script> 
+        <script src="js/bundle.js"></script> 
 
     </head>
     <body ng-app="myRetail" ng-cloak onmousedown="document.getElementsByClassName('button-reset').innerHTML='a{outline:none}';" onkeydown="document.getElementsByClassName('button-reset').innerHTML=''">
         
         <div class="page" ng-controller="ItemController as item">
             
+            <div ng-view></div>
             <!-- Main -->
             <section class="title-gallery page__section">
                 <div class="title-gallery__title">{{item.title}}</div>
