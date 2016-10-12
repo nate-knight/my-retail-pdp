@@ -30,21 +30,20 @@
                 <span class="details__priceQualifier">{{item.offerPrice.priceQualifier}}</span>
 
                 <!-- promotions -->
-                <div ng-controller="PromosController as promoCtrl" class="details__promo-container details__section">
+                <div ng-controller="PromosController as promoCtrl" class="details__promotions">
                     <div ng-repeat="promo in promoCtrl.promos">
                         <img src="./img/red-tag.png" />
-                        <a class="item__promo" href="#">{{promo}}</a>
+                        <a class="details__promo-text" href="#">{{promo}}</a>
                     </div>
                 </div>
-
     
                 <!-- quantity -->
-                <div class="details__section details__quantity">
-                    <div class="details__quantity__label">quantity</div>
-                    <div class="details__quantity__container">
-                        <div class="btn-quantity" ng-click="decreaseQuantity()"><span class="btn-quantity--subtract">_</span></div>
-                        <div class="details__quantity__text">{{quantity}}</div>
-                         <div class="btn-quantity" ng-click="increaseQuantity()"><span class="btn-quantity--add">+</span></div>
+                <div class="quantity">
+                    <div class="quantity__label">quantity</div>
+                    <div class="quantity__changer">
+                        <button class="btn-quantity btn-quantity--subtract button-reset" ng-click="decreaseQuantity()"><span class="btn-quantity__symbol--subtract">-</span></button>
+                        <div class="quantity__value">{{quantity}}</div>
+                         <button class="btn-quantity btn-quantity--add button-reset" ng-click="increaseQuantity()"><span class="btn-quantity__symbol--add">+</span></button>
                     </div>
                 </div>
 

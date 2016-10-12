@@ -49,7 +49,7 @@ gulp.task('lint', function() {
 gulp.task('sass', function () {
   return gulp.src('./css/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    //.pipe(sass({outputStyle: 'compressed'}))
+    .pipe(sass({outputStyle: 'compressed'}))
     .pipe(gulp.dest('./css'));
 });
  

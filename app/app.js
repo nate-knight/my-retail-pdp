@@ -25,7 +25,7 @@
 
 	.controller('PromosController', function(){
 		this.promos = [
-			'spend $50, ship free', 
+			'spend $50, ship freee', 
 			'$25 gift card with purchase of a select Ninja Blender'
 		];
 	});

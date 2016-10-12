@@ -54,9 +54,9 @@
 .btn-quantity {
   display:inline-block;
   background-color: #ccc;
+  width: 30px;
   height: 30px;
   @include border-radius(15px);
-  width: 30px;
   color: white;
   font-family: Helvetica;
   font-size:30px;
@@ -64,15 +64,14 @@
   top: 5px;
   cursor: pointer;
 }
-
-.btn-quantity--add{
+.btn-quantity__symbol--add{
 	position:absolute;
-    top:-2px;
+    top:-5px;
     left:6px;
  }
 
-.btn-quantity--subtract{
+.btn-quantity__symbol--subtract{
   	position:absolute;
-    top:-14px;
-    left:7px;
+    top:-5px;
+    left:10px;
  }
