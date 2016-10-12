@@ -39,7 +39,7 @@
         float:none;
         margin-top:20px;
     }
-
+}
     .details__price{
         font-family: Arial;
         font-weight: 700;
@@ -78,7 +78,7 @@
         height: 40px;
         border: 1px solid #d3d2d2;
         position: relative;
-        margin-top: 30px;
+        margin: 30px 0;
         @include border-radius(2px);
     }
         .quantity__label{
@@ -114,9 +114,7 @@
             width:100px;
         }
 
-    .details__primary-action-buttons{
-        margin-top: 30px;
-    }
+    
 
     .return-policy{
         margin: 40px 0 30px;
@@ -139,7 +137,7 @@
         display:inline-block;
         vertical-align: top;
         
-        a{
+        .return-policy__link{
             color:#666;
             font-weight:700;
         }
@@ -157,7 +155,7 @@
 
     }
 
-    .item__features{
+    .features__list{
         margin-top: 25px;
         font-family: Helvetica, sans-serif;
         font-weight: 400;
@@ -167,11 +165,11 @@
         padding-left: 16px;
     }
 
-    .item__feature{
+    .features__item{
         font-family: Helvetica, sans-serif;
         font-weight: 400;
         font-size: 14px;
         color: #666;
         padding: 5px 0;
     }
-}
+

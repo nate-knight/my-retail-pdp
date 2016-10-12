@@ -47,43 +47,39 @@
                     </div>
                 </div>
 
-                <!-- primary action buttons -->
-                <div class="details__section details__primary-action-buttons">
-                    <button class="btn-primary btn-primary--red" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 2">PICK UP IN STORE</button>
-                    <button class="btn-primary btn-primary--black flt-rt" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 1">ADD TO CART</button>
-                </div>
+                <!-- pick up in store / add to cart  -->
+                <button class="btn-primary btn-primary--red" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 2">PICK UP IN STORE</button>
+                <button class="btn-primary btn-primary--black flt-rt" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 1">ADD TO CART</button>
+                
 
                 <!-- return policy  -->
-                <div class="details__section return-policy">
+                <div class="return-policy">
                     <div class="return-policy__title">returns</div>
-                    <div class="return-policy__text">This item must be returned within 30 days of the ship date. See <a href="#">return policy</a> for details.<br/>Prices, promotions, styles and availability may vary by store and online.</div>
+                    <div class="return-policy__text">This item must be returned within 30 days of the ship date. See <a class="return-policy__link" href="#">return policy</a> for details.<br/>Prices, promotions, styles and availability may vary by store and online.</div>
                 </div>
 
                 <!-- secondary action buttons -->
-                <div class="secondary-buttons">
-                    <button class="btn-secondary btn-secondary--sm">ADD TO REGISTRY</button>
-                    <button class="btn-secondary btn-secondary--med">ADD TO LIST</button>
-                    <button class="btn-secondary btn-secondary--lg">SHARE</button>
-                </div>
-
+                <button class="btn-secondary btn-secondary--sm">ADD TO REGISTRY</button>
+                <button class="btn-secondary btn-secondary--med">ADD TO LIST</button>
+                <button class="btn-secondary btn-secondary--lg">SHARE</button>
+                
                 <!-- product highlights -->
-                <div class="details__section features">
+                <div class="features">
                     <span class="features__header">product highlights</span>
-                    <ul class="item__features">
-                        <li class="item__feature" ng-repeat="feature in item.features" ng-bind-html="feature">{{feature}}</li>
+                    <ul class="features__list">
+                        <li class="features__item" ng-repeat="feature in item.features" ng-bind-html="feature">{{feature}}</li>
                     </ul>
                 </div>
 
             </section>
     
             <!-- Reviews -->
-            <section class="reviews page__section">
+            <section class="page__section">
                 <reviews></reviews>
             </section>
 
         </div>
-        <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-        
+        <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     </body>
 </html>
