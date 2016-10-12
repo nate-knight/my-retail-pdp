@@ -17,68 +17,7 @@
         <div class="page" ng-controller="ItemController as item">
             
             <div ng-view></div>
-            <!-- Main -->
-            <section class="title-gallery page__section">
-                <div class="title-gallery__title">{{item.title}}</div>
-                
-                <product-img-gallery></product-img-gallery>
-            </section>
-
-            <!-- Details -->
-            <section class="details page__section">
-                <!-- price -->
-                <span class="details__price">{{item.offerPrice.formattedPriceValue}}</span>
-                <span class="details__priceQualifier">{{item.offerPrice.priceQualifier}}</span>
-
-                <!-- promotions -->
-                <div ng-controller="PromosController as promoCtrl" class="details__promotions">
-                    <div ng-repeat="promo in promoCtrl.promos">
-                        <img src="./img/red-tag.png" />
-                        <a class="details__promo-text" href="#" tabindex="-1">{{promo}}</a>
-                    </div>
-                </div>
-    
-                <!-- quantity -->
-                <div class="quantity">
-                    <div class="quantity__label">quantity</div>
-                    <div class="quantity__changer">
-                        <button class="btn-quantity btn-quantity--subtract button-reset" ng-click="decreaseQuantity()" tabindex="4"><span class="btn-quantity__symbol--subtract">-</span></button>
-                        <div class="quantity__value">{{quantity}}</div>
-                         <button class="btn-quantity btn-quantity--add button-reset" ng-click="increaseQuantity()" tabindex="5"><span class="btn-quantity__symbol--add">+</span></button>
-                    </div>
-                </div>
-
-                <!-- pick up in store / add to cart  -->
-                <button class="btn-primary btn-primary--red button-reset" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 2" tabindex="6">PICK UP IN STORE</button>
-                <button class="btn-primary btn-primary--black flt-rt button-reset" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 1" tabindex="7">ADD TO CART</button>
-                
-
-                <!-- return policy  -->
-                <div class="return-policy">
-                    <div class="return-policy__title">returns</div>
-                    <div class="return-policy__text">This item must be returned within 30 days of the ship date. See <a class="return-policy__link" href="#" tabindex="8">return policy</a> for details.<br/>Prices, promotions, styles and availability may vary by store and online.</div>
-                </div>
-
-                <!-- secondary action buttons -->
-                <button class="btn-secondary btn-secondary--sm button-reset" tabindex="9">ADD TO REGISTRY</button>
-                <button class="btn-secondary btn-secondary--med button-reset" tabindex="10">ADD TO LIST</button>
-                <button class="btn-secondary btn-secondary--lg button-reset" tabindex="11">SHARE</button>
-                
-                <!-- product highlights -->
-                <div class="features">
-                    <span class="features__header">product highlights</span>
-                    <ul class="features__list">
-                        <li class="features__item" ng-repeat="feature in item.features" ng-bind-html="feature">{{feature}}</li>
-                    </ul>
-                </div>
-
-            </section>
-    
-            <!-- Reviews -->
-            <section class="page__section">
-                <reviews></reviews>
-            </section>
-
+            
         </div>
 
         <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
