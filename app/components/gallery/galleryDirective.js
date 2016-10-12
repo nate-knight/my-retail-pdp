@@ -51,7 +51,7 @@
 			       	});
 				},
 				link: function(scope, el, attrs, controller){
-					
+					//jquery --> sorry :/
 					scope.slideImages = function(direction){
 						var distance = direction ? '-=75px' : '+=75px';
 						$('.gallery__thumbnails').animate({

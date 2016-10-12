@@ -10,7 +10,6 @@ var sourcemaps = require('gulp-sourcemaps');
 var assign = require('lodash.assign');
 
 //watchify 
-// add custom browserify options here
 var customOpts = {
   entries: ['./js/main.js'],
   debug: true
@@ -18,9 +17,9 @@ var customOpts = {
 var opts = assign({}, watchify.args, customOpts);
 var b = watchify(browserify(opts)); 
 
-gulp.task('watchify', bundle); // so you can run `gulp js` to build the file
-b.on('update', bundle); // on any dep update, runs the bundler
-b.on('log', gutil.log); // output build logs to terminal
+gulp.task('watchify', bundle);
+b.on('update', bundle); 
+b.on('log', gutil.log);
 
 function bundle() {
   return b.bundle()
@@ -50,7 +49,7 @@ gulp.task('lint', function() {
 gulp.task('sass', function () {
   return gulp.src('./css/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(sass({outputStyle: 'compressed'}))
+    //.pipe(sass({outputStyle: 'compressed'}))
     .pipe(gulp.dest('./css'));
 });
  

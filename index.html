@@ -53,8 +53,8 @@
 
                 <!-- primary action buttons -->
                 <div class="details__section details__primary-action-buttons">
-                    <button class="btn btn--default" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 2">PICK UP IN STORE</button>
-                    <button class="btn btn--primary flt-rt" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 1">ADD TO CART</button>
+                    <button class="btn-primary btn-primary--red" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 2">PICK UP IN STORE</button>
+                    <button class="btn-primary btn-primary--black flt-rt" ng-show="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 1">ADD TO CART</button>
                 </div>
 
                 <!-- return policy  -->
@@ -64,10 +64,10 @@
                 </div>
 
                 <!-- secondary action buttons -->
-                <div class="details__section">
-                    <button class="btn--secondary btn--secondary-sm">ADD TO REGISTRY</button>
-                    <button class="btn--secondary btn--secondary-med">ADD TO LIST</button>
-                    <button class="btn--secondary btn--secondary-lg">SHARE</button>
+                <div class="secondary-buttons">
+                    <button class="btn-secondary btn-secondary--sm">ADD TO REGISTRY</button>
+                    <button class="btn-secondary btn-secondary--med">ADD TO LIST</button>
+                    <button class="btn-secondary btn-secondary--lg">SHARE</button>
                 </div>
 
                 <!-- product highlights -->
@@ -82,13 +82,10 @@
     
             <!-- Reviews -->
             <section class="reviews item__section">
-                <reviews-module></reviews-module>
+                <reviews></reviews>
             </section>
 
         </div>
- 
-
-        <!--<script src="js/vendor/modernizr-2.8.3.min.js"></script>-->
         
         <script   src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 

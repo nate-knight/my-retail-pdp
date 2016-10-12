@@ -1,6 +1,6 @@
 (function(){
 	angular.module('myRetail')
-		.directive('reviewsModule', ['Item', function(Item){
+		.directive('reviews', ['Item', function(Item){
 
 			return {
 				restrict: 'E',
