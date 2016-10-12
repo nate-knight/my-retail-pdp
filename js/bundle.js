@@ -94,6 +94,9 @@
 									scope.setActiveImg();
 						});
 					};
+					$('.arrow').on('click', function(){
+						$(this).css('outline','none');
+					})
 
 				}
 			}
@@ -161,13 +164,34 @@ angular.module('myRetail')
 })();
 
 },{}],6:[function(require,module,exports){
-require('../node_modules/angular/angular.min');
-require('../node_modules/angular-sanitize/angular-sanitize.min');
-require('../app/app');
-require('../app/components/gallery/galleryDirective');
-require('../app/components/reviews/reviewsController');
-require('../app/components/reviews/reviewsDirective');
-require('../app/services/item');
+(function(){
+	
+	require('../node_modules/angular/angular.min');
+	require('../node_modules/angular-sanitize/angular-sanitize.min');
+	require('../app/app');
+	require('../app/components/gallery/galleryDirective');
+	require('../app/components/reviews/reviewsController');
+	require('../app/components/reviews/reviewsDirective');
+	require('../app/services/item');
+
+
+
+	// DOM manipulation to remove focus outline on mouse click for button events, and re-add outline when keyboard tab is pressed for accessibility
+	window.onload = function(){
+		$(function(){
+			
+			$('.button-reset').on('mousedown',function(e){
+				$(this).css('outline', '0');
+			});
+
+			$('body').keydown(function(e){
+				e.keyCode === 9 && $('.button-reset').css('outline',''); // jshint ignore:line
+			});
+
+		});
+	};
+
+})();
 },{"../app/app":1,"../app/components/gallery/galleryDirective":2,"../app/components/reviews/reviewsController":3,"../app/components/reviews/reviewsDirective":4,"../app/services/item":5,"../node_modules/angular-sanitize/angular-sanitize.min":7,"../node_modules/angular/angular.min":8}],7:[function(require,module,exports){
 /*
  AngularJS v1.5.8

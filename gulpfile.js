@@ -72,7 +72,6 @@ gulp.task('compress-js',['watchify'], function (cb) {
 });
 
 
-gulp.task('default', ['lint', 'watch', 'watchify']); //remove compress-js for faster compiling in development
-//gulp.task('default', ['lint', 'watch', 'watchify', 'compress-js']);
+gulp.task('default', ['lint', 'watch', 'watchify', 'compress-js']); //remove compress-js for faster compiling in development
 
 
