@@ -3,6 +3,9 @@ var sass = require('gulp-sass');
 var jshint = require('gulp-jshint');
 var watchify = require('watchify');
 var browserify = require('browserify');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
+var pump = require('pump');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var gutil = require('gulp-util');
@@ -29,17 +32,16 @@ function bundle() {
     // optional, remove if you don't need to buffer file contents
     .pipe(buffer())
     // optional, remove if you dont want sourcemaps
-    //.pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
-       // Add transformation tasks to the pipeline here.
+    .pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
+    // Add transformation tasks to the pipeline here.
     //.pipe(sourcemaps.write('./')) // writes .map file
     .pipe(gulp.dest('./js'));
 }
 //end watchify
 
-
 gulp.task('lint', function() {
     return gulp.src([
-    	'!js/bundle.js',
+    	'!js/bundle*.js',
     	'js/*.js'
     	])
         .pipe(jshint())
@@ -49,7 +51,7 @@ gulp.task('lint', function() {
 gulp.task('sass', function () {
   return gulp.src('./css/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(sass({outputStyle: 'compressed'})) //uncomment to minify
     .pipe(gulp.dest('./css'));
 });
  
@@ -58,6 +60,18 @@ gulp.task('watch', function () {
   gulp.watch('./css/**/*.scss', ['sass']);
 });
 
+gulp.task('compress-js',['watchify'], function (cb) {
+  pump([
+        gulp.src('js/bundle.js'),
+        uglify({mangle:false}),
+        rename({ suffix: '.min' }),
+        gulp.dest('./js')
+    ],
+    cb
+  );
+});
 
 
-gulp.task('default', ['lint', 'watch', 'watchify']);
+gulp.task('default', ['lint', 'watch', 'watchify', 'compress-js']); //remove compress-js for faster compiling in development
+
+

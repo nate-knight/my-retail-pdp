@@ -7,7 +7,8 @@
     "doc": "doc"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify js/main.js  | uglifyjs  > js/bundle.min.js"
   },
   "author": "Nate Knight",
   "license": "ISC",
@@ -20,11 +21,15 @@
     "browserify": "latest",
     "gulp": "^3.9.1",
     "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.0.0",
+    "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "jshint": "^2.9.3",
     "lodash.assign": "^4.2.0",
+    "pump": "^1.0.1",
+    "uglify": "^0.1.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
