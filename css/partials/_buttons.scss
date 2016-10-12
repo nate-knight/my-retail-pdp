@@ -1,0 +1,78 @@
+.btn-primary {
+	display: inline-block;
+  width:240px;
+  height:40px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 18px Helvetica, sans-serif;
+  color:#fff;
+  @include border-radius(3px);
+  @include box-shadow(0, 1px, 2px, #999);
+}
+
+.btn-primary--red {
+	border: solid 1px #CC0000;
+  @include gradient(#e16969,#cc0000);
+  &:hover{
+    @include gradient(#cc0000,#e16969);
+  }
+}
+
+.btn-primary--black{
+	border: solid 1px #000;
+  @include gradient(#6b6b6b,#000);
+  &:hover{
+    @include gradient(#000, #6b6b6b);
+  }
+}
+
+.btn-secondary{
+    @include border-radius(2px);
+    display: inline-block;
+    height: 25px;
+    background: #f3f3f3;
+    border: none;
+    padding-top:3px;
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 12px;
+    color: #333;
+
+    &--sm{
+    	width:150px;
+    }
+    &--med{
+    	width:155px;
+    }
+    &--lg{
+    	width:175px;
+    }
+}
+
+.btn-quantity {
+  display:inline-block;
+  background-color: #ccc;
+  height: 30px;
+  @include border-radius(15px);
+  width: 30px;
+  color: white;
+  font-family: Helvetica;
+  font-size:30px;
+  position:relative;
+  top: 5px;
+  cursor: pointer;
+}
+
+.btn-quantity--add{
+	position:absolute;
+    top:-2px;
+    left:6px;
+ }
+
+.btn-quantity--subtract{
+  	position:absolute;
+    top:-14px;
+    left:7px;
+ }

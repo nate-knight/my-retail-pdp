@@ -1,0 +1,9 @@
+//main.scss
+@import 'vendor/reset';
+@import 'partials/base';
+// @import 'partials/typography';
+@import 'partials/mixins';
+@import 'partials/buttons';
+@import 'partials/body';
+@import 'components/gallery';
+@import 'components/reviews';
