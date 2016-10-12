@@ -1,6 +1,6 @@
 // _body.scss
 
-.item{
+.page{
     width: 1000px;
     @media #{$mobile}{
         width: 490px;
@@ -8,7 +8,7 @@
     margin: 20px auto;
 }
 
-.item__section{
+.page__section{
     display: inline-block;
     // border: 1px dashed orange;
     @media #{$mobile}{
@@ -16,17 +16,18 @@
     }
 }
 
-.item__title-gallery{
+.title-gallery{
     width: 480px;
-    margin-bottom: 10px;
-}
-    &.item__title{
+    margin-bottom: 25px;
+
+    &__title{
         font-family: Helvetica;
         font-weight: 100;
         font-size: 26px;
         margin: 0 50px 40px;
         text-align: center;
     }
+}
 
 .details{
     width: 490px;

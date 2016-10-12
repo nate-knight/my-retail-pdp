@@ -14,17 +14,17 @@
     </head>
     <body ng-app="myRetail" ng-cloak>
         
-        <div class="item" ng-controller="ItemController as item">
+        <div class="page" ng-controller="ItemController as item">
             
             <!-- Main -->
-            <section class="item__title-gallery item__section">
-                <div class="item__title">{{item.title}}</div>
+            <section class="title-gallery page__section">
+                <div class="title-gallery__title">{{item.title}}</div>
                 
                 <product-img-gallery></product-img-gallery>
             </section>
 
             <!-- Details -->
-            <section class="details item__section">
+            <section class="details page__section">
                 <!-- price -->
                 <span class="details__price">{{item.offerPrice.formattedPriceValue}}</span>
                 <span class="details__priceQualifier">{{item.offerPrice.priceQualifier}}</span>
@@ -78,7 +78,7 @@
             </section>
     
             <!-- Reviews -->
-            <section class="reviews item__section">
+            <section class="reviews page__section">
                 <reviews></reviews>
             </section>
 
