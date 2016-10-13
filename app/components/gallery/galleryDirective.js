@@ -58,6 +58,17 @@
 									scope.setActiveImg();
 						});
 					};
+
+			      	// DOM manipulation to remove focus outline on mouse click for button events.
+			      	// To do: create separate directives for custom buttons and add dom manipulation there.
+					$('.button-reset').on('mousedown',function(e){
+						$(this).css('outline', '0');
+					});
+
+					// re-add outline when keyboard Tab is pressed for accessibility
+					$('body').keydown(function(e){
+						e.keyCode === 9 && $('.button-reset').css('outline',''); // jshint ignore:line
+					});
 				}
 			}
 		}]);

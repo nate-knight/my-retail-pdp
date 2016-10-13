@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 (function(){
-	
+
 	angular.module('myRetail', ['ngSanitize','ngRoute'])
 
 	.controller('ItemController', ['Item','$scope', function(Item,$scope){
@@ -32,6 +32,8 @@
 	});
 
 })();
+
+
 
 },{}],2:[function(require,module,exports){
 (function(){
@@ -94,6 +96,17 @@
 									scope.setActiveImg();
 						});
 					};
+
+			      	// DOM manipulation to remove focus outline on mouse click for button events.
+			      	// To do: create separate directives for custom buttons and add dom manipulation there.
+					$('.button-reset').on('mousedown',function(e){
+						$(this).css('outline', '0');
+					});
+
+					// re-add outline when keyboard Tab is pressed for accessibility
+					$('body').keydown(function(e){
+						e.keyCode === 9 && $('.button-reset').css('outline',''); // jshint ignore:line
+					});
 				}
 			}
 		}]);
@@ -184,22 +197,6 @@ angular.module('myRetail')
 	require('../app/components/reviews/reviewsDirective');
 	require('../app/services/item');
 
-
-	// DOM manipulation to remove focus outline on mouse click for button events, and re-add outline when keyboard tab is pressed for accessibility
-	window.onload = function(){
-
-		// DOM manipulation to remove focus outline on mouse click for button events.
-		$('.button-reset').on('mousedown',function(e){
-			console.log('mousedown');
-			$(this).css('outline', '0');
-		});
-
-		// re-add outline when keyboard Tab is pressed for accessibility
-		$('body').keydown(function(e){
-			e.keyCode === 9 && $('.button-reset').css('outline',''); // jshint ignore:line
-		});
-		
-	};
 
 })();
 },{"../app/app":1,"../app/components/gallery/galleryDirective":2,"../app/components/reviews/reviewsController":3,"../app/components/reviews/reviewsDirective":4,"../app/routes":5,"../app/services/item":6,"../node_modules/angular-route/angular-route.min":8,"../node_modules/angular-sanitize/angular-sanitize.min":9,"../node_modules/angular/angular.min":10}],8:[function(require,module,exports){
