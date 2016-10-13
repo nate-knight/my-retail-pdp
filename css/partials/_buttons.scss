@@ -81,10 +81,9 @@
   margin:0;
   padding:0;
   border:0;
-  // background: transparent;
-  // font-size: inherit;
-  outline:none;
-}
-.button-reset:focus{
-  outline:#666 dashed 1px;
+
+  &:focus:{
+    outline: #666 dashed 1px;
+  }
+    
 }

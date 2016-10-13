@@ -58,10 +58,6 @@
 									scope.setActiveImg();
 						});
 					};
-					$('.arrow').on('click', function(){
-						$(this).css('outline','none');
-					})
-
 				}
 			}
 		}]);
