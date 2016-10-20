@@ -5,9 +5,9 @@
 	require('../node_modules/angular-route/angular-route.min');
 	require('../app/app');
 	require('../app/routes');
-	require('../app/components/gallery/galleryDirective');
-	require('../app/components/reviews/reviewsController');
-	require('../app/components/reviews/reviewsDirective');
+	require('../app/directives/gallery/galleryDirective');
+	require('../app/directives/reviews/reviewsController');
+	require('../app/directives/reviews/reviewsComponent');
 	require('../app/services/item');
 
 

@@ -38,13 +38,13 @@
 },{}],2:[function(require,module,exports){
 (function(){
 	angular.module('myRetail')
-		.directive('productImgGallery', ['Item',function(Item){
+		.component('productImgGallery',{
 
-			return {
-				restrict: 'E',
-				templateUrl: './app/components/gallery/galleryView.html',
-				scope: {},
-				controller: function($scope){
+				bindings: {
+
+				},
+				templateUrl: './app/directives/gallery/galleryTemplate.html',
+				controller: function($scope, Item){
 					$scope.images = [];
 				   	$scope.activeImgIndex = 1;
 				   	$scope.activeImgUrl = '';
@@ -108,10 +108,19 @@
 						e.keyCode === 9 && $('.button-reset').css('outline',''); // jshint ignore:line
 					});
 				}
-			}
-		}]);
+			
+		});
 })();
 },{}],3:[function(require,module,exports){
+(function(){
+	angular.module('myRetail')
+		.component('reviews', {
+				templateUrl: './app/directives/reviews/reviewsTemplate.html',
+				controller: 'ReviewsController',
+				controllerAs: 'r'
+		});
+})();
+},{}],4:[function(require,module,exports){
 (function(){
 	angular.module('myRetail')
 		.controller('ReviewsController',function(Item, $scope){
@@ -139,21 +148,6 @@
 		       	});
 		});
 }());
-},{}],4:[function(require,module,exports){
-(function(){
-	angular.module('myRetail')
-		.directive('reviews', ['Item', function(Item){
-
-			return {
-				restrict: 'E',
-				templateUrl: './app/components/reviews/reviewsView.html',
-				scope: {},
-				controller: 'ReviewsController',
-				controllerAs: 'r'
-			}
-
-		}]);
-})();
 },{}],5:[function(require,module,exports){
 (function(){
 
@@ -192,14 +186,14 @@ angular.module('myRetail')
 	require('../node_modules/angular-route/angular-route.min');
 	require('../app/app');
 	require('../app/routes');
-	require('../app/components/gallery/galleryDirective');
-	require('../app/components/reviews/reviewsController');
-	require('../app/components/reviews/reviewsDirective');
+	require('../app/directives/gallery/galleryDirective');
+	require('../app/directives/reviews/reviewsController');
+	require('../app/directives/reviews/reviewsComponent');
 	require('../app/services/item');
 
 
 })();
-},{"../app/app":1,"../app/components/gallery/galleryDirective":2,"../app/components/reviews/reviewsController":3,"../app/components/reviews/reviewsDirective":4,"../app/routes":5,"../app/services/item":6,"../node_modules/angular-route/angular-route.min":8,"../node_modules/angular-sanitize/angular-sanitize.min":9,"../node_modules/angular/angular.min":10}],8:[function(require,module,exports){
+},{"../app/app":1,"../app/directives/gallery/galleryDirective":2,"../app/directives/reviews/reviewsComponent":3,"../app/directives/reviews/reviewsController":4,"../app/routes":5,"../app/services/item":6,"../node_modules/angular-route/angular-route.min":8,"../node_modules/angular-sanitize/angular-sanitize.min":9,"../node_modules/angular/angular.min":10}],8:[function(require,module,exports){
 /*
  AngularJS v1.5.8
  (c) 2010-2016 Google, Inc. http://angularjs.org

@@ -1,12 +1,12 @@
 (function(){
 	angular.module('myRetail')
-		.directive('productImgGallery', ['Item',function(Item){
+		.component('productImgGallery',{
 
-			return {
-				restrict: 'E',
-				templateUrl: './app/components/gallery/galleryView.html',
-				scope: {},
-				controller: function($scope){
+				bindings: {
+
+				},
+				templateUrl: './app/directives/gallery/galleryTemplate.html',
+				controller: function($scope, Item){
 					$scope.images = [];
 				   	$scope.activeImgIndex = 1;
 				   	$scope.activeImgUrl = '';
@@ -70,6 +70,6 @@
 						e.keyCode === 9 && $('.button-reset').css('outline',''); // jshint ignore:line
 					});
 				}
-			}
-		}]);
+			
+		});
 })();
