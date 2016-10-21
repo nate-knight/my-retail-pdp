@@ -38,11 +38,10 @@
 },{}],2:[function(require,module,exports){
 (function(){
 	angular.module('myRetail')
-		.component('productImgGallery',{
-
-				bindings: {
-
-				},
+		.directive('productImgGallery',['Item', function(Item){
+			return {
+				restrict: 'E',
+				scope: {},
 				templateUrl: './app/directives/gallery/galleryTemplate.html',
 				controller: function($scope, Item){
 					$scope.images = [];
@@ -108,8 +107,9 @@
 						e.keyCode === 9 && $('.button-reset').css('outline',''); // jshint ignore:line
 					});
 				}
+			}
 			
-		});
+		}]);
 })();
 },{}],3:[function(require,module,exports){
 (function(){
